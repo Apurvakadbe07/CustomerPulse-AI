@@ -19,8 +19,6 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Original Olist raw dataset
-1 data/01_raw_data/
 
 # Saved ML models
 2 Notebook/saved_models/
@@ -28,5 +26,5 @@ Thumbs.db
 # Temporary / checking notebook
 2 Notebook/check.ipynb
 
-# Unwanted processed customer dataset
-1 data/02_processed data/customer_360_clean.csv
+
+customer_360_supabase.sql

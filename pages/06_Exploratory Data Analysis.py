@@ -20,8 +20,11 @@ st.set_page_config(
 # DATA PATH
 # ============================================================
 
-DATA_PATH = Path(
-    r"D:\customer pulse AI project\1 data\02_processed data\customer_360.csv"
+DATA_PATH = (
+    Path(__file__).resolve().parents[1]
+    / "1 data"
+    / "02_processed data"
+    / "customer_360.csv"
 )
 
 
@@ -6735,9 +6738,12 @@ st.write(
 # EXPORT PATH
 # ============================================================
 
-export_path = Path(
-    r"D:\customer pulse AI project"
-) / "1 data" / "03_analysis" / "customer_360_clean.csv"
+export_path = (
+    Path(__file__).resolve().parents[1]
+    / "1 data"
+    / "03_analysis"
+    / "customer_360_clean.csv"
+)
 
 
 st.subheader("Final Dataset Export")
@@ -6796,3 +6802,7 @@ except Exception as e:
     st.error(
         f"Dataset export failed: {e}"
     )
+
+
+
+

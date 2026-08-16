@@ -26,10 +26,10 @@ st.set_page_config(
 # ============================================================
 
 DATA_PATHS = [
-    r"D:\customer pulse AI project\1 data\02_processed data\customer_360_clean.csv",
-    r"D:\customer pulse AI project\1 data\02_processed data\customer_360.csv",
-    r"D:\customer pulse AI project\1 data\03_analysis\customer_360_clean.csv",
-    r"D:\customer pulse AI project\1 data\03_analysis\customer_360_final.csv",
+    Path(__file__).resolve().parents[1] / "1 data" / "02_processed data" / "customer_360_clean.csv",
+    Path(__file__).resolve().parents[1] / "1 data" / "02_processed data" / "customer_360.csv",
+    Path(__file__).resolve().parents[1] / "1 data" / "03_analysis" / "customer_360_clean.csv",
+    Path(__file__).resolve().parents[1] / "1 data" / "03_analysis" / "customer_360_final.csv",
 ]
 
 

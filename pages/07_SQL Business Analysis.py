@@ -89,13 +89,25 @@ st.markdown("""
 @st.cache_resource
 def get_connection():
 
-    conn = psycopg2.connect(
-        host="localhost",
-        database="customerpulse_ai",
-        user="postgres",
-        password="postgres123",
-        port="5432"
-    )
+    if "postgresql" in st.secrets:
+
+        db_config = st.secrets["postgresql"]
+
+        conn = psycopg2.connect(
+            host=db_config["host"],
+            database=db_config["database"],
+            user=db_config["user"],
+            password=db_config["password"],
+            port=db_config.get("port", "5432")
+        )
+
+    else:
+
+        st.error(
+            "PostgreSQL connection is not configured. "
+            "Please configure the database credentials in Streamlit secrets."
+        )
+        st.stop()
 
     return conn
 
