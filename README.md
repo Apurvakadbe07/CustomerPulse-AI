@@ -134,16 +134,32 @@ EDA was performed to understand customer behaviour and identify patterns related
 
 ### 5. SQL Business Analysis
 
-PostgreSQL was used to convert the prepared data into business-focused analysis.
+PostgreSQL was used to analyse the Customer 360 dataset through 20 business-focused SQL queries.
 
 The analysis covers:
 
-- At-risk customer analysis
-- Revenue-at-risk analysis
-- Average spending analysis
-- Customer value tiers
-- Revenue contribution
-- Churn analysis
+- Overall business health and customer performance
+- Customer value tier performance and risk
+- State-wise revenue and customer risk
+- Monthly revenue and customer acquisition
+- Pareto revenue analysis
+- High-spending customers with low purchase frequency
+- Customer Lifetime Value by value tier
+- Early identification of at-risk customers
+- Inactive repeat customers
+- High Average Order Value and low-frequency customers
+- Repeat purchase rate by customer value tier
+- Impact of delivery delay on customer risk
+- Review score, repeat purchase behaviour, and customer risk
+- State-wise cancellation rate and customer satisfaction
+- Overall customer risk distribution
+- Factors associated with at-risk customers
+- Revenue associated with at-risk customers
+- High-risk VIP and high-spending customers
+- SQL-based customer risk scoring
+- Retention priority analysis
+
+The SQL analysis connects customer behaviour, customer value, customer experience, risk, and revenue exposure to support business-focused retention analysis.
 
 ### 6. RFM Segmentation
 
@@ -190,18 +206,6 @@ The dashboard covers:
 - Model performance and business impact
 
 The dashboard is designed to help review customer risk, business exposure, and retention priorities from a single interface.
-
-### Dashboard Screenshots
-
-#### Executive Command Center
-
-![Executive Dashboard](assets/page%201%20dashboard.png)
-
-#### Customer Churn Intelligence
-
-![Customer Churn Dashboard](assets/page%202%20dashboard.png)
-
-## Key Insights
 
 ## Key Insights
 
