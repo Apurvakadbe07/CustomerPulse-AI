@@ -74,7 +74,14 @@ The dataset contains information related to:
 - Sellers
 - Reviews
 
-The original raw dataset is not included in the repository. Processed datasets and project-generated outputs are included.
+The original Olist datasets used for this project are included in the repository under:
+
+1 data/01_raw_data/
+
+Processed and project-generated datasets are available under:
+
+1 data/02_processed data/
+1 data/03_analysis/.
 
 ### Key Customer-Level Features
 
@@ -230,7 +237,7 @@ The Power BI dashboard presents the major findings through multiple analytical p
 
 ![Customer Churn Dashboard](assets/page%202%20%20dashboard.png)
 
-#### AI Powered Retension Intelligence
+#### AI-Powered Retention Intelligence
 ![Retension Dashboard](assets/page%203%20dashboard.png)
 
 The dashboard covers customer and revenue analysis, churn intelligence, risk segmentation, customer value, revenue risk, retention analysis, and model performance.
