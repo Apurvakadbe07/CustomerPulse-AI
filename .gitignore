@@ -28,3 +28,8 @@ Thumbs.db
 
 
 customer_360_supabase.sql
+
+
+
+# Unused raw dataset
+1 data/01_raw_data/olist_geolocation_dataset.csv

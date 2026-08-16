@@ -30,19 +30,19 @@ FINAL_DATASET = (
 PAGE_1_IMAGE = (
     PROJECT_ROOT
     / "assets"
-    / "page 1 dashboard.png"
+    / "dashboard1.png"
 )
 
 PAGE_2_IMAGE = (
     PROJECT_ROOT
     / "assets"
-    / "page 2  dashboard.png"
+    / "dashboard2.png"
 )
 
 PAGE_3_IMAGE = (
     PROJECT_ROOT
     / "assets"
-    / "page 3 dashboard.png"
+    / "dashboard3.png"
 )
 
 
@@ -65,7 +65,6 @@ st.markdown(
 
     /* ========================================================
        BACKGROUND
-       Uses background color from .streamlit/config.toml
        ======================================================== */
 
     .block-container {
@@ -257,9 +256,6 @@ def show_dashboard(image_path, name):
 
 def show_insight(number, title, text):
 
-    # HTML is used ONLY for the visual card container.
-    # The actual insight text contains NO HTML tags.
-
     st.markdown(
         f"""
         <div class="insight-box">
@@ -320,40 +316,39 @@ st.subheader("Key Insights")
 
 c1, c2 = st.columns(2)
 
+
 with c1:
 
     show_insight(
         "01",
         "Customer Base",
-        "The report covers approximately 96K customers. "
-        "This is the complete customer population represented "
-        "in the final dashboard and provides the base for the "
-        "revenue, customer value and churn analysis."
+        "The dashboard covers 96K customers, providing the base "
+        "for analyzing revenue, customer value and churn exposure."
     )
 
     show_insight(
         "02",
-        "Total Revenue",
-        "Total revenue is approximately $16.0M. "
-        "This represents the overall revenue recorded for "
-        "the customer base included in the completed report."
+        "Revenue Performance",
+        "Total revenue is approximately $16.0M. This establishes "
+        "the overall revenue base against which customer risk "
+        "and potential revenue exposure can be evaluated."
     )
 
     show_insight(
         "03",
-        "Revenue at Risk",
-        "The dashboard reports approximately $13.9M Revenue at Risk. "
-        "This represents the revenue exposure shown by the "
-        "completed customer risk analysis."
+        "Revenue Exposure",
+        "Approximately $13.9M of revenue is shown as Revenue at Risk. "
+        "This highlights a significant revenue exposure associated "
+        "with the customer risk identified in the dashboard."
     )
 
     show_insight(
         "04",
-        "Actual vs Predicted Churn",
-        "Actual Churn is approximately 71.15%, while Predicted "
-        "Churn is approximately 87.69%. Actual Churn represents "
-        "the recorded customer outcome, while Predicted Churn "
-        "comes from the finalized churn analysis."
+        "Retention vs Predicted Churn",
+        "The dashboard reports a 28.87% Retention Rate and an "
+        "87.69% Predicted Churn Rate. Together, these indicators "
+        "show a substantial gap between retained customers and "
+        "customers identified as likely to churn."
     )
 
 
@@ -361,39 +356,36 @@ with c2:
 
     show_insight(
         "05",
-        "Revenue by State",
-        "São Paulo contributes approximately $6.0M in revenue. "
-        "Rio de Janeiro contributes around $2.1M, followed by "
-        "Minas Gerais at around $1.8M. The chart shows that "
-        "revenue contribution varies across states."
+        "Revenue Concentration by State",
+        "São Paulo is the largest visible revenue contributor at "
+        "approximately $6.0M, followed by Rio de Janeiro at around "
+        "$2.1M and Minas Gerais at around $1.8M. Revenue is therefore "
+        "more concentrated in a few major states."
     )
 
     show_insight(
         "06",
         "Customer Value Distribution",
-        "The customer base is almost evenly divided by customer "
-        "count across the three value tiers. The finalized "
-        "analysis contains 32,032 High, 32,029 Medium and "
-        "32,034 Low value customers."
+        "Customer counts are almost evenly distributed across High, "
+        "Medium and Low value tiers, with approximately 32K customers "
+        "in each segment. Customer volume is therefore balanced across "
+        "the three value groups."
     )
 
     show_insight(
         "07",
-        "Revenue by Customer Value",
-        "High-value customers contribute approximately $10.88M, "
-        "compared with $3.52M from Medium-value customers and "
-        "$1.60M from Low-value customers. Similar customer "
-        "counts therefore produce very different revenue "
-        "contributions."
+        "Value Tier Revenue Contribution",
+        "High-value customers generate approximately $10.88M, compared "
+        "with $3.52M from Medium-value and $1.60M from Low-value customers. "
+        "This shows that customer count alone does not represent revenue value."
     )
 
     show_insight(
         "08",
-        "Monthly Revenue",
-        "The monthly revenue chart shows changes across the "
-        "displayed period. The highest visible level occurs "
-        "around May, while the level around August is "
-        "considerably lower."
+        "Monthly Revenue Trend",
+        "Monthly revenue varies considerably across the displayed period. "
+        "The chart shows a strong revenue level around May and a notable "
+        "decline around August, indicating variation in monthly revenue performance."
     )
 
 
@@ -429,63 +421,68 @@ st.subheader("Key Insights")
 
 c1, c2 = st.columns(2)
 
+
 with c1:
 
     show_insight(
         "01",
-        "Risk Distribution",
-        "High Risk customers represent approximately 51.91% "
-        "of the displayed customer population. Medium Risk "
-        "represents 35.78%, while Low Risk represents 12.31%. "
-        "High Risk is therefore the largest reported risk group."
+        "Customer Risk Distribution",
+        "High Risk customers account for 51.91% of the displayed "
+        "customer base, followed by Medium Risk at 35.78% and "
+        "Low Risk at 12.31%. High Risk is therefore the largest "
+        "customer risk segment."
     )
 
     show_insight(
         "02",
-        "High Risk Customers",
-        "The finalized risk analysis records 11,961 High Risk "
-        "customers. This is the highest-risk group in the "
-        "finalized risk-segment output."
+        "High-Risk Customer Exposure",
+        "Approximately 50K customers are classified as High Risk "
+        "in the dashboard. This identifies a large customer group "
+        "that requires closer retention attention."
     )
 
     show_insight(
         "03",
-        "Medium and Low Risk",
-        "The finalized risk output records 5,776 Medium Risk "
-        "customers and 1,483 Low Risk customers. These groups "
-        "represent the lower risk levels in the finalized "
-        "segmentation."
+        "Predicted Churn Exposure",
+        "The dashboard reports approximately 84K Predicted Churn "
+        "Customers. This represents the customer population classified "
+        "as predicted churn by the finalized churn output."
+    )
+
+    show_insight(
+        "04",
+        "Churn Probability Profile",
+        "The probability distribution shows customer risk spread "
+        "across multiple probability levels, with substantial "
+        "customer volume toward the higher probability range. "
+        "This indicates that churn risk is not uniform across customers."
     )
 
 
 with c2:
 
     show_insight(
-        "04",
-        "Churn Probability",
-        "The churn probability chart shows customers distributed "
-        "across different probability levels, with considerable "
-        "customer volume visible toward the higher probability "
-        "range. This means predicted churn risk differs from "
-        "customer to customer."
-    )
-
-    show_insight(
         "05",
-        "State-wise Actual Churn",
-        "The state-wise chart shows differences in actual churn "
-        "rates between the locations displayed in the dashboard. "
-        "Recorded churn is therefore not at exactly the same "
-        "level across all states shown."
+        "Actual Churn by State",
+        "Actual churn rates vary across the states displayed in the "
+        "dashboard. This highlights geographic differences in recorded "
+        "customer churn and provides a basis for state-level comparison."
     )
 
     show_insight(
         "06",
-        "Customer Value vs Churn Risk",
-        "The scatter chart compares customer value with churn "
-        "risk. This allows higher- and lower-value customers "
-        "to be viewed together with their reported churn risk "
-        "instead of analysing the two measures separately."
+        "Customer Value vs Churn Probability",
+        "The scatter analysis combines customer value with churn "
+        "probability, allowing high- and lower-value customers to be "
+        "evaluated alongside their predicted churn risk."
+    )
+
+    show_insight(
+        "07",
+        "Risk Segmentation for Action",
+        "The risk segmentation converts churn probability into High, "
+        "Medium and Low Risk groups. This makes the model output easier "
+        "to interpret for customer prioritization and retention analysis."
     )
 
 
@@ -521,48 +518,49 @@ st.subheader("Key Insights")
 
 c1, c2 = st.columns(2)
 
+
 with c1:
 
     show_insight(
         "01",
-        "High-Risk Customer Targeting",
-        "The retention dashboard targets approximately 50K High "
-        "Risk customers. This connects the customer-risk analysis "
-        "with the retention actions shown in the dashboard."
+        "High-Risk Customers for Retention",
+        "The retention dashboard focuses on approximately 50K High Risk "
+        "customers. This connects the churn-risk output with a defined "
+        "customer population for retention analysis."
     )
 
     show_insight(
         "02",
-        "High-Risk Revenue",
-        "High-Risk Revenue is approximately $8.05M. "
-        "This shows the revenue associated with the High Risk "
-        "customer group in the completed retention report."
+        "High-Risk Revenue Exposure",
+        "The High Risk customer segment represents approximately "
+        "$8.05M in revenue. This helps quantify the financial exposure "
+        "associated with the customers targeted for retention."
     )
 
     show_insight(
         "03",
-        "Main Revenue-at-Risk Reasons",
-        "Only One Purchase Made is the largest recorded reason, "
-        "with approximately $9.3M of revenue exposure. Poor "
-        "Customer Experience is the second-largest reason at "
-        "around $3.8M."
+        "Primary Revenue-at-Risk Reasons",
+        "Only One Purchase Made is the largest visible revenue-at-risk "
+        "reason at approximately $9.3M, followed by Poor Customer "
+        "Experience at approximately $3.8M. These are the two most "
+        "significant reasons shown in the retention analysis."
     )
 
     show_insight(
         "04",
-        "Other Recorded Reasons",
-        "The dashboard also records revenue exposure under "
-        "other reasons, including Low Purchase Frequency and "
-        "Delivery Delay. These appear as smaller categories "
-        "compared with the two largest reasons shown."
+        "Secondary Revenue-at-Risk Reasons",
+        "Low Purchase Frequency and Delivery Delays contribute smaller "
+        "amounts of revenue exposure compared with the two leading "
+        "reasons. The dashboard therefore provides multiple areas "
+        "for retention intervention."
     )
 
     show_insight(
         "05",
-        "Campaign Budget",
-        "The dashboard records an estimated campaign budget of "
-        "approximately $1M. This adds the estimated investment "
-        "requirement to the customer retention analysis."
+        "Estimated Retention Investment",
+        "The dashboard includes an estimated campaign budget of "
+        "approximately $1M. This adds an estimated investment view "
+        "to the retention planning analysis."
     )
 
 
@@ -570,47 +568,43 @@ with c2:
 
     show_insight(
         "06",
-        "Campaign ROI",
-        "The completed dashboard reports a 3.67× Campaign ROI "
-        "Multiplier. Based on the calculation used in the "
-        "report, the reported return is 3.67 times the "
-        "campaign investment."
+        "Projected Campaign ROI",
+        "The dashboard reports a 3.67× projected Campaign ROI Multiplier. "
+        "This is a modeled planning metric shown by the retention "
+        "analysis, rather than an actual realized campaign return."
     )
 
     show_insight(
         "07",
         "Recommendation Coverage",
-        "Recommendation Coverage is shown as 100%. "
-        "This indicates that recommendation information is "
-        "available across the customer records included in "
-        "this dashboard measure."
+        "Recommendation Coverage is reported at 100%, indicating that "
+        "recommendation information is available across the records "
+        "included in this dashboard measure."
     )
 
     show_insight(
         "08",
-        "Retention Priorities",
-        "Retention actions are divided across Critical, High, "
-        "Medium and Low priority levels. This allows the "
-        "recorded customer actions to be viewed according "
-        "to their assigned priority."
+        "Priority-Based Retention",
+        "Retention actions are categorized into Critical, High, Medium "
+        "and Low priorities. This creates a structured framework for "
+        "deciding which customer cases require greater attention."
     )
 
     show_insight(
         "09",
-        "Owner and Workload",
-        "Customer retention activities are assigned to "
-        "recorded owners. This connects each customer action "
-        "with the owner responsible for handling that case."
+        "Retention Ownership",
+        "Retention activities are mapped to responsible teams such "
+        "as CRM & Loyalty, Marketing and Customer Support. This connects "
+        "customer-level actions with an accountable business function."
     )
 
     show_insight(
         "10",
-        "Customer-Level Retention Action",
-        "The execution table brings together customer ID, "
-        "churn probability, risk segment, reason, recommendation, "
-        "priority, owner and timeline. This allows individual "
-        "customer risk and the corresponding recorded retention "
-        "action to be viewed together."
+        "Customer-Level Action Plan",
+        "The execution table combines churn probability, risk segment, "
+        "reason, recommendation, priority, owner and timeline. This "
+        "moves the analysis from identifying risk to defining a "
+        "specific retention action for individual customers."
     )
 
 
@@ -628,10 +622,11 @@ st.markdown(
 st.subheader("Final Dashboard View")
 
 st.write(
-    "The three dashboards present the customer base, customer "
-    "risk and retention execution in sequence. The report moves "
-    "from overall customer and revenue analysis to churn risk "
-    "and then to the recorded retention actions."
+    "The three dashboards present the customer analysis in sequence: "
+    "overall customer and revenue performance, customer churn risk, "
+    "and retention execution. Together, they connect customer data "
+    "with churn prediction, risk segmentation and actionable "
+    "retention analysis."
 )
 
 
