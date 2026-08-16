@@ -2,67 +2,49 @@
 
 ## Customer Churn Analysis & Retention Intelligence Platform
 
-CustomerPulse AI is a customer analytics project built using the Olist Brazilian E-Commerce Dataset. It examines customer purchasing behaviour, customer value, churn risk, and revenue exposure, and uses these findings to support retention analysis.
+CustomerPulse AI is a customer analytics project built using the **Olist Brazilian E-Commerce Dataset**. The project analyses customer purchasing behaviour, customer value, churn risk, and revenue exposure to understand where customer retention requires attention.
 
-The project covers the complete analytical process from data preparation and Customer 360 development to SQL analysis, customer segmentation, churn prediction, revenue risk assessment, and business reporting.
+The project follows an end-to-end analytics workflow covering data preparation, Customer 360 development, exploratory analysis, PostgreSQL business analysis, customer segmentation, churn prediction, revenue-risk analysis, retention prioritisation, and business dashboards.
 
 ---
 
 ## Business Problem
 
-Customer information in an e-commerce business is distributed across multiple sources such as customers, orders, payments, products, sellers, reviews, and delivery records.
+In an e-commerce business, customer information is distributed across multiple datasets such as customers, orders, payments, products, sellers, reviews, and delivery records.
 
-Analysing these sources independently makes it difficult to answer important business questions:
+Analysing these sources separately makes it difficult to answer business questions such as:
 
-- Which customers are at higher risk of churn?
-- What is the value of these customers?
+- Which customers are more likely to churn?
+- Which customers contribute the most revenue?
 - How much revenue is associated with customers at risk?
-- Which customers should receive greater retention attention?
-- How can customer data be used to support retention decisions?
+- Which customer groups require greater retention attention?
+- What customer behaviour is associated with churn risk?
+- How can customer-level analysis support retention decisions?
 
-CustomerPulse AI addresses these questions by bringing customer behaviour, value, churn risk, and revenue exposure together at the customer level.
-
----
-
-## Project Goal
-
-The goal of the project is to develop a customer-level analytical framework that can be used to understand customer behaviour, identify churn risk, evaluate business exposure, and support retention prioritisation.
-
-The project focuses on:
-
-- Building a reliable Customer 360 dataset
-- Understanding customer purchasing behaviour
-- Analysing customer value
-- Segmenting customers based on behaviour
-- Predicting churn risk
-- Measuring revenue exposure
-- Prioritising customers for retention analysis
-- Presenting the findings through interactive business dashboards
+CustomerPulse AI brings these customer, transaction, behavioural, value, and risk signals together into a customer-level analytical view.
 
 ---
 
-## Key Results
+## Project Objective
 
-The project produces verified analytical outputs covering:
+The objective is to build a customer-level analytical framework that helps a business:
 
-- Customer-level churn prediction
-- Churn probability
-- Risk segmentation
-- Customer value tiers
-- Revenue-at-risk analysis
-- Retention recommendations
-- Customer priorities
-- Customer action planning
-
-> Project metrics are based on the final validated datasets and model outputs included in the repository.
+- Understand customer purchasing behaviour
+- Measure customer value
+- Identify churn risk
+- Estimate revenue exposure
+- Segment customers based on risk and value
+- Prioritise customers for retention analysis
+- Translate analytical findings into retention actions
+- Present business findings through interactive dashboards
 
 ---
 
 ## Dataset
 
-### Source
+### Olist Brazilian E-Commerce Dataset
 
-**Olist Brazilian E-Commerce Dataset**
+The project uses the **Olist Brazilian E-Commerce Dataset**, a public Brazilian e-commerce dataset commonly available through Kaggle.
 
 The dataset contains information related to:
 
@@ -74,45 +56,61 @@ The dataset contains information related to:
 - Sellers
 - Reviews
 
-The original Olist datasets used for this project are included in the repository under:
+The project integrates relevant datasets to create a customer-level analytical view.
 
-1 data/01_raw_data/
+### Final Customer 360 Dataset
 
-Processed and project-generated datasets are available under:
+The final validated dataset contains:
 
-1 data/02_processed data/
-1 data/03_analysis/.
+- **96,096 customer records**
+- **49 features**
+- **0 missing values**
+- **0 duplicate records**
 
-### Key Customer-Level Features
+The Customer 360 dataset combines customer information with purchasing, spending, frequency, tenure, review, delivery, payment, value, churn, risk, and retention-related information.
 
-The Customer 360 dataset contains information related to:
+---
+
+## Customer 360
+
+A Customer 360 dataset was developed by consolidating relevant customer and transaction information into a single customer-level analytical dataset.
+
+The feature engineering process covers:
 
 - Customer profile
-- Purchasing behaviour
-- Spending
+- Order behaviour
+- Total spending
 - Purchase frequency
 - Customer tenure
-- Reviews
+- Average order value
+- Review behaviour
 - Delivery experience
 - Payment behaviour
 - Customer value
 - Churn-related features
-- Risk information
-- Retention outputs
+
+After the churn analysis and retention workflow, additional model and business-action features were incorporated, resulting in the final **49-feature Customer 360 dataset**.
 
 ---
 
-## Analytical Approach
+# Analytical Workflow
 
-### 1. Data Understanding
+## 1. Data Understanding
 
-The Olist datasets were examined individually to understand their structure, relationships, data types, and data quality.
+The Olist datasets were examined individually to understand:
 
-### 2. Data Cleaning & Validation
+- Dataset structure
+- Relationships between tables
+- Data types
+- Missing values
+- Duplicate records
+- Business meaning of important fields
 
-The datasets were cleaned and validated before being used for analysis.
+---
 
-This included:
+## 2. Data Cleaning & Validation
+
+The data preparation process included:
 
 - Missing-value analysis
 - Duplicate checks
@@ -121,62 +119,82 @@ This included:
 - Dataset integration
 - Final validation
 
-### 3. Customer 360
+The final Customer 360 dataset was validated before being used for downstream analysis.
 
-Relevant customer and transaction information was consolidated into a customer-level dataset.
+---
 
-This created a single analytical view combining purchasing behaviour, spending, frequency, tenure, reviews, delivery experience, payments, and customer value.
+## 3. Customer 360 Development
 
-### 4. Exploratory Data Analysis
+Relevant customer, transaction, payment, review, delivery, and behavioural information was consolidated into a customer-level dataset.
+
+This created a single analytical view that could be used across:
+
+**EDA → SQL Analysis → Segmentation → Churn Prediction → Revenue Risk → Retention Analysis**
+
+---
+
+## 4. Exploratory Data Analysis
 
 EDA was performed to understand customer behaviour and identify patterns related to:
 
-- Spending
+- Customer spending
 - Purchase frequency
 - Customer value
 - Customer tenure
-- Reviews
+- Review behaviour
 - Delivery experience
-- Churn-related features
+- Payment behaviour
+- Churn-related characteristics
 
-### 5. SQL Business Analysis
+---
 
-PostgreSQL was used to analyse the Customer 360 dataset through 20 business-focused SQL queries.
+## 5. SQL Business Analysis
 
-The analysis covers:
+**PostgreSQL** was used to perform **20 business-focused SQL analyses** on the Customer 360 data.
 
-- Overall business health and customer performance
-- Customer value tier performance and risk
-- State-wise revenue and customer risk
-- Monthly revenue and customer acquisition
+The analysis covers areas including:
+
+- Overall customer and revenue performance
+- Customer value tier analysis
+- State-wise revenue
+- State-wise customer risk
+- Monthly revenue trends
+- Customer acquisition
 - Pareto revenue analysis
 - High-spending customers with low purchase frequency
 - Customer Lifetime Value by value tier
-- Early identification of at-risk customers
+- At-risk customer identification
 - Inactive repeat customers
-- High Average Order Value and low-frequency customers
-- Repeat purchase rate by customer value tier
-- Impact of delivery delay on customer risk
-- Review score, repeat purchase behaviour, and customer risk
-- State-wise cancellation rate and customer satisfaction
-- Overall customer risk distribution
-- Factors associated with at-risk customers
+- Repeat purchase behaviour
+- Delivery delay and customer risk
+- Review score and customer risk
+- Cancellation behaviour
 - Revenue associated with at-risk customers
 - High-risk VIP and high-spending customers
-- SQL-based customer risk scoring
+- Customer risk scoring
 - Retention priority analysis
 
-The SQL analysis connects customer behaviour, customer value, customer experience, risk, and revenue exposure to support business-focused retention analysis.
+The SQL layer was used to connect customer behaviour with business outcomes such as customer value, churn exposure, and revenue risk.
 
-### 6. RFM Segmentation
+---
+
+## 6. RFM Segmentation
 
 RFM analysis was performed using:
 
 **Recency | Frequency | Monetary Value**
 
-This provided a behavioural and monetary view of customers based on their purchasing activity.
+This provided a behavioural view of customers based on:
 
-### 7. Churn Prediction
+- How recently they purchased
+- How frequently they purchased
+- How much they spent
+
+The segmentation helps compare customer engagement and monetary value across different customer groups.
+
+---
+
+## 7. Churn Prediction
 
 Four classification models were developed and evaluated:
 
@@ -185,68 +203,143 @@ Four classification models were developed and evaluated:
 - Random Forest
 - XGBoost
 
-The selected model generates customer-level churn predictions, probability scores, and risk segments.
+The selected churn model produces customer-level:
 
-### 8. Revenue Risk & Retention Analysis
+- Churn prediction
+- Churn probability
+- Risk segment
 
-Churn results were combined with customer value and revenue information to assess business exposure.
+Model evaluation included:
 
-The retention analysis follows:
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- ROC-AUC
 
-**Churn Risk → Customer Value → Revenue Risk → Retention Recommendation → Priority**
+### Model Performance
 
-This connects the prediction output with business context instead of treating churn prediction as a standalone model.
+The final reported XGBoost model achieved:
+
+| Metric | Score |
+|---|---:|
+| Accuracy | 77.10% |
+| Precision | 77.46% |
+| Recall | 95.62% |
+| F1 Score | 85.59% |
+| ROC-AUC | 78.15% |
 
 ---
-## Power BI Dashboard
 
-A Power BI dashboard was developed to present the analysis in a business-focused format.
+## 8. Revenue Risk Analysis
 
-The dashboard covers:
+The churn results were combined with customer value and revenue information to understand the financial exposure associated with customer risk.
 
-- Executive customer and revenue overview
-- Customer churn intelligence
-- Churn risk and risk segmentation
-- Customer value and revenue analysis
+The analysis connects:
+
+**Customer Risk → Customer Value → Revenue Exposure**
+
+This allows churn to be viewed not only as a customer-level problem but also as a potential business-revenue problem.
+
+---
+
+## 9. Retention Analysis
+
+The retention workflow extends the churn analysis into business action.
+
+The framework follows:
+
+**Churn Risk → Customer Value → Revenue Risk → Retention Recommendation → Priority → Owner → Timeline**
+
+This provides a structured way to move from identifying customers at risk to analysing appropriate retention actions.
+
+---
+
+# Power BI Dashboard
+
+Power BI was used to create a business-focused dashboard for analysing the customer base, revenue, churn risk, and retention opportunities.
+
+The current dashboard contains three main analytical views:
+
+### Page 1 — Customer Analytics Overview
+
+Focuses on:
+
+- Total customers
+- Total revenue
 - Revenue at risk
-- Retention recommendations
-- Model performance and business impact
+- Retention rate
+- Predicted churn
+- Revenue by state
+- Customer value distribution
+- Revenue contribution by customer value
+- Monthly revenue trend
 
-The dashboard is designed to help review customer risk, business exposure, and retention priorities from a single interface.
+### Page 2 — Customer Churn Intelligence
 
-## Key Insights
+Focuses on:
 
-- **71.13%** of customers were classified under the churn flag, highlighting significant churn exposure.
-- **68,352 customers** were identified as at-risk, with **11.26M** in revenue at risk.
-- **High-value customers contributed 10.88M in revenue**, making customer value an important factor in retention analysis.
-- The churn prediction model achieved **77.10% Accuracy, 77.46% Precision, 95.62% Recall, 85.59% F1 Score, and 78.15% ROC-AUC**.
-- Risk segmentation was used to identify customer groups requiring different levels of retention attention.
+- Churn exposure
+- Customer risk distribution
+- Churn probability
+- State-wise actual churn
+- Customer value vs churn probability
+- Risk segmentation
+
+### Page 3 — Retention Intelligence
+
+Focuses on:
+
+- High-risk customer targeting
+- High-risk revenue exposure
+- Revenue-at-risk reasons
+- Retention priorities
+- Campaign budget
+- Projected campaign ROI
+- Recommendation coverage
+- Retention ownership
+- Customer-level retention actions
+
+The dashboard connects customer-level analysis with business-level revenue and retention decisions.
+
 ---
 
-## Visualizations & Screenshots
+# Key Business Findings
 
-### Power BI Dashboard
+The analysis highlights several important business patterns:
 
-The Power BI dashboard presents the major findings through multiple analytical pages.
-
-#### Customer Analytics Overview
-
-![Customer Analytics Dashboard](assets/page%201%20dashboard.png)
-
-#### Customer Churn Intelligence
-
-![Customer Churn Dashboard](assets/page%202%20%20dashboard.png)
-
-#### AI-Powered Retention Intelligence
-![Retension Dashboard](assets/page%203%20dashboard.png)
-
-The dashboard covers customer and revenue analysis, churn intelligence, risk segmentation, customer value, revenue risk, retention analysis, and model performance.
+- The final Customer 360 dataset contains **96,096 customers and 49 features**.
+- The dashboard reports approximately **$16.0M total revenue**.
+- Approximately **$13.9M revenue is shown as Revenue at Risk** in the final Power BI dashboard.
+- The dashboard reports a **28.87% Retention Rate**.
+- The dashboard reports an **87.69% Predicted Churn Rate**.
+- High Risk represents approximately **51.91%** of the displayed customer population.
+- High-value customers contribute approximately **$10.88M in revenue**, compared with approximately **$3.52M from Medium-value** and **$1.60M from Low-value customers**.
+- São Paulo is the largest visible state-level revenue contributor at approximately **$6.0M**.
+- In the retention analysis, **Only One Purchase Made** and **Poor Customer Experience** are the two largest visible revenue-at-risk reasons.
+- The retention dashboard connects customer risk with priority, recommendation, owner, and timeline for customer-level action planning.
 
 ---
 
-## Streamlit Application
+# Power BI Dashboard Screenshots
 
-A multi-page Streamlit application was developed to provide an interactive interface for the project.
+## Page 1 — Customer Analytics Overview
+
+![Customer Analytics Overview](assets/dashboard1.png)
+
+## Page 2 — Customer Churn Intelligence
+
+![Customer Churn Intelligence](assets/dashboard2.png)
+
+## Page 3 — Retention Intelligence
+
+![Retention Intelligence](assets/dashboard3.png)
+
+---
+
+# Streamlit Application
+
+A multi-page Streamlit application was developed to provide an interactive interface for the complete project.
 
 The application includes:
 
@@ -263,26 +356,66 @@ The application includes:
 - Final Project Report
 - Project Conclusion & Future Scope
 
+The Final Project Report page brings the three Power BI dashboard views together with their corresponding analytical insights.
+
 ---
 
-Olist E-Commerce Dataset
-          ↓
-Data Understanding
-          ↓
-Data Cleaning & Validation
-          ↓
-Customer 360
-          ↓
-Exploratory Data Analysis
-          ↓
-SQL Business Analysis
-          ↓
-RFM Segmentation
-          ↓
-Churn Prediction
-          ↓
-Customer Risk & Revenue Analysis
-          ↓
-Retention Analysis
-          ↓
-Power BI & Streamlit
+# Technology Stack
+
+### Data & Analysis
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+
+### Database & SQL
+- PostgreSQL
+- SQL
+
+### Machine Learning
+- Scikit-learn
+- XGBoost
+
+### Business Intelligence
+- Power BI
+- DAX
+
+### Application
+- Streamlit
+
+### Development
+- Jupyter Notebook
+- Git
+- GitHub
+
+---
+
+# End-to-End Project Flow
+
+```text
+Olist Brazilian E-Commerce Dataset
+                ↓
+        Data Understanding
+                ↓
+      Data Cleaning & Validation
+                ↓
+          Customer 360
+                ↓
+     Exploratory Data Analysis
+                ↓
+       PostgreSQL SQL Analysis
+                ↓
+          RFM Segmentation
+                ↓
+         Churn Prediction
+                ↓
+     Customer Risk Analysis
+                ↓
+       Revenue Risk Analysis
+                ↓
+       Retention Analysis
+                ↓
+     Priority & Action Planning
+                ↓
+       Power BI + Streamlit
