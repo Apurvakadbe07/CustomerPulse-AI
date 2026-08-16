@@ -1,0 +1,23 @@
+.venv/
+venv/
+env/
+
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+.env
+.streamlit/secrets.toml
+
+*.pkl
+*.joblib
+*.h5
+*.keras
+
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+1 data/01_raw_data/
+2 Notebook/saved_models/
